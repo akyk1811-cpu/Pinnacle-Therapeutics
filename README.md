@@ -15,7 +15,17 @@ Run `npm run typecheck`, `npm run lint`, and `npm run build` before deployment.
 
 ## Content handoff
 
-All placeholder copy lives in `app/page.tsx`. Replace it only after company/medical review. Do not publish product claims, prescribing information, certifications, or clinical data without regulatory sign-off.
+The landing page is in `app/page.tsx`; dedicated placeholders are in `app/about`, `app/vision`, `app/therapeutic-areas`, and `app/products`. Put approved product images in `public/images/products`. Replace copy only after company/medical review. Do not publish product claims, prescribing information, certifications, or clinical data without regulatory sign-off.
+
+## Search readiness
+
+The site includes a `robots.txt` route, sitemap, page metadata, and canonical URLs. Before public launch, set `NEXT_PUBLIC_SITE_URL` to the final `https://` domain, deploy it, verify the domain in Google Search Console, and submit `/sitemap.xml`.
+
+## Contact database and anti-abuse setup
+
+Contact submissions are designed for a hosted Neon Postgres database; the schema is in `database/0000_initial.sql`. Create a Neon project, run that SQL in its SQL editor, and place its connection string in `DATABASE_URL` in your deployment environment. Configure an Upstash Redis database and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` for durable rate limiting across server instances. Generate a long random `CONTACT_IP_SALT` and keep all of these values in deployment secrets—not Git.
+
+The form validates inputs, uses a bot honeypot, limits IP attempts, hashes rather than stores raw IP addresses, and blocks repeated enquiries from the same email for 24 hours. Add email-verification and Turnstile before public launch if contact abuse is a concern.
 
 ## Security posture
 
