@@ -1,0 +1,92 @@
+[33mcommit 2f65242029760c31a5ae98ecd9553bbfaf6702a5[m
+Author: akyk1811-cpu <Akyk1811@gmail.com>
+Date:   Tue Sep 1 00:43:43 2026 +0530
+
+    Mode 1
+
+ .env.example                                       |   11 [32m+[m[31m-[m
+ README.md                                          |    2 [32m+[m
+ app/about/page.tsx                                 |  182 [32m+++[m[31m-[m
+ app/api/contact/route.ts                           |   30 [32m+[m[31m-[m
+ app/contact/page.tsx                               |   16 [32m+[m[31m-[m
+ app/globals.css                                    | 1094 [32m+++++++++++++++++++[m[31m-[m
+ app/page.tsx                                       |   34 [32m+[m[31m-[m
+ app/privacy/page.tsx                               |   63 [32m+[m[31m-[m
+ app/products/page.tsx                              |    1 [32m+[m
+ app/terms/page.tsx                                 |   58 [32m+[m[31m-[m
+ app/therapeutic-areas/page.tsx                     |  140 [32m++[m[31m-[m
+ app/vision/page.tsx                                |   73 [32m+[m[31m-[m
+ lib/notify.ts                                      |   75 [32m++[m
+ lib/products.ts                                    |   29 [32m+[m[31m-[m
+ lib/site.ts                                        |   85 [32m+[m[31m-[m
+ next.config.ts                                     |    5 [32m+[m[31m-[m
+ .../images/about/company-profile-hero-updated.jpg  |  Bin [31m0[m -> [32m431300[m bytes
+ public/images/about/company-profile-hero.jpg       |  Bin [31m0[m -> [32m212158[m bytes
+ public/images/about/company-profile-hero.png       |  Bin [31m0[m -> [32m1613709[m bytes
+ public/images/about/company-profile-hero.svg       |   82 [32m++[m
+ public/images/about/pillar-goal.jpg                |  Bin [31m0[m -> [32m330864[m bytes
+ public/images/about/pillar-goal.png                |  Bin [31m0[m -> [32m557624[m bytes
+ public/images/about/pillar-goal.svg                |   10 [32m+[m
+ public/images/about/pillar-mission.jpg             |  Bin [31m0[m -> [32m409892[m bytes
+ public/images/about/pillar-mission.png             |  Bin [31m0[m -> [32m598588[m bytes
+ public/images/about/pillar-mission.svg             |   12 [32m+[m
+ public/images/about/pillar-values.jpg              |  Bin [31m0[m -> [32m258930[m bytes
+ public/images/about/pillar-values.png              |  Bin [31m0[m -> [32m440492[m bytes
+ public/images/about/pillar-values.svg              |   14 [32m+[m
+ public/images/about/pillar-vision.jpg              |  Bin [31m0[m -> [32m388154[m bytes
+ public/images/about/pillar-vision.png              |  Bin [31m0[m -> [32m606947[m bytes
+ public/images/about/pillar-vision.svg              |   12 [32m+[m
+ public/images/about/story-people.jpg               |  Bin [31m0[m -> [32m32241[m bytes
+ public/images/about/story-precision.jpg            |  Bin [31m0[m -> [32m59963[m bytes
+ public/images/about/story-science.jpg              |  Bin [31m0[m -> [32m70733[m bytes
+ public/images/about/story-together.jpg             |  Bin [31m0[m -> [32m69290[m bytes
+ public/images/focus-areas/cardiometabolic.jpg      |  Bin [31m0[m -> [32m675818[m bytes
+ public/images/focus-areas/cardiometabolic.svg      |   44 [32m+[m
+ public/images/focus-areas/everyday-wellness.jpg    |  Bin [31m0[m -> [32m584713[m bytes
+ public/images/focus-areas/everyday-wellness.svg    |   38 [32m+[m
+ public/images/focus-areas/gastroenterology.jpg     |  Bin [31m0[m -> [32m49793[m bytes
+ public/images/focus-areas/gastroenterology.svg     |   34 [32m+[m
+ public/images/focus-areas/gynaecology.jpg          |  Bin [31m0[m -> [32m732654[m bytes
+ public/images/focus-areas/gynaecology.svg          |   44 [32m+[m
+ public/images/focus-areas/internal-medicine.jpg    |  Bin [31m0[m -> [32m791263[m bytes
+ public/images/focus-areas/internal-medicine.svg    |   44 [32m+[m
+ public/images/focus-areas/nutraceutical.jpg        |  Bin [31m0[m -> [32m670620[m bytes
+ public/images/focus-areas/nutraceutical.svg        |   44 [32m+[m
+ public/images/focus-areas/orthopedic.jpg           |  Bin [31m0[m -> [32m731217[m bytes
+ public/images/focus-areas/orthopedic.svg           |   44 [32m+[m
+ public/images/focus-areas/respiratory-health.jpg   |   44 [32m+[m
+ public/images/focus-areas/respiratory-health.svg   |   44 [32m+[m
+ public/images/focus-areas/respiratory.jpg          |  Bin [31m0[m -> [32m713188[m bytes
+ public/images/focus-areas/respiratory.svg          |   44 [32m+[m
+ public/images/products/ALPHAHEP-400.jpg            |  Bin [31m111054[m -> [32m136418[m bytes
+ public/images/products/ALPHAHEP-400.svg            |   11 [32m+[m
+ public/images/products/ALPHAHEP-L.jpg              |  Bin [31m0[m -> [32m116297[m bytes
+ public/images/products/DROFA-M.jpg                 |  Bin [31m0[m -> [32m384294[m bytes
+ public/images/products/DYDOPURE.jpg                |  Bin [31m0[m -> [32m69058[m bytes
+ public/images/products/GILDAGEST-200-SR.jpg        |  Bin [31m0[m -> [32m323474[m bytes
+ public/images/products/GILDAGEST-300-SR.jpg        |  Bin [31m0[m -> [32m348837[m bytes
+ public/images/products/KLZ-K2.jpg                  |  Bin [31m0[m -> [32m398044[m bytes
+ public/images/products/KLZ-PLUS.jpg                |  Bin [31m0[m -> [32m324042[m bytes
+ public/images/products/KLZ.jpg                     |  Bin [31m0[m -> [32m361830[m bytes
+ public/images/products/L-PRODIN.jpg                |  Bin [31m100037[m -> [32m306353[m bytes
+ public/images/products/L-Prodino.jpg               |  Bin [31m205082[m -> [32m231088[m bytes
+ public/images/products/MURFIX-200LB.jpg            |  Bin [31m0[m -> [32m291345[m bytes
+ public/images/products/MURFIX-O.jpg                |  Bin [31m0[m -> [32m399661[m bytes
+ public/images/products/PAXO-D.jpg                  |  Bin [31m0[m -> [32m74957[m bytes
+ public/images/products/PAXO-DSR.jpg                |  Bin [31m0[m -> [32m364866[m bytes
+ public/images/products/PAXO-RD.jpg                 |  Bin [31m0[m -> [32m74957[m bytes
+ public/images/products/ROF-OZ.jpg                  |  Bin [31m88682[m -> [32m454531[m bytes
+ public/images/products/UBX-FORTE.jpg               |  Bin [31m125624[m -> [32m309736[m bytes
+ public/images/products/UBX-GOLD.jpg                |  Bin [31m119868[m -> [32m248619[m bytes
+ public/images/products/VISARON.jpg                 |  Bin [31m0[m -> [32m62256[m bytes
+ public/images/products/ZEPAMOL-SP.jpg              |  Bin [31m0[m -> [32m333536[m bytes
+ public/images/products/ZYNOR-NT.jpg                |  Bin [31m0[m -> [32m267471[m bytes
+ public/images/vision/customer-focus.jpg            |  Bin [31m0[m -> [32m104698[m bytes
+ public/images/vision/customer-focus.svg            |   26 [32m+[m
+ public/images/vision/innovation.jpg                |  Bin [31m0[m -> [32m161202[m bytes
+ public/images/vision/innovation.svg                |   25 [32m+[m
+ public/images/vision/integrity.jpg                 |  Bin [31m0[m -> [32m119847[m bytes
+ public/images/vision/integrity.svg                 |   23 [32m+[m
+ public/images/vision/quality.jpg                   |  Bin [31m0[m -> [32m181891[m bytes
+ public/images/vision/quality.svg                   |   24 [32m+[m
+ 85 files changed, 2458 insertions(+), 103 deletions(-)
