@@ -40,6 +40,7 @@ export default function ProductsPage() {
                   src={product.image}
                   alt={product.brand}
                   fill
+                  unoptimized
                   className="product-img"
                   sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />

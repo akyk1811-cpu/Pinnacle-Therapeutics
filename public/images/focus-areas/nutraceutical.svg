@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+      <defs>
+        <linearGradient id="grad_nutraceutical" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0F172A" />
+          <stop offset="60%" stop-color="#1E293B" />
+          <stop offset="100%" stop-color="#059669" />
+        </linearGradient>
+        <filter id="shadow_nutraceutical">
+          <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.3" />
+        </filter>
+      </defs>
+
+      <rect width="600" height="400" fill="url(#grad_nutraceutical)" />
+      
+      <!-- Real-World Clinical Grid Patterns & Lighting -->
+      <circle cx="500" cy="80" r="180" fill="#059669" opacity="0.2" />
+      <circle cx="80" cy="320" r="140" fill="#FFFFFF" opacity="0.04" />
+      
+      <!-- Glassmorphic Card Container -->
+      <rect x="30" y="30" width="540" height="340" fill="rgba(255, 255, 255, 0.05)" rx="16" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" />
+
+      <!-- Top Tag Badge -->
+      <rect x="55" y="55" width="280" height="28" fill="#059669" rx="14" opacity="0.9" />
+      <text x="70" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="1.5">EVIDENCE-BASED SUPPLEMENTS</text>
+
+      <!-- Main Medical Title -->
+      <text x="55" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF">Nutraceutical</text>
+
+      <!-- Clinical Highlights List -->
+      <g transform="translate(55, 175)" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#E2E8F0">
+        <circle cx="8" cy="-5" r="4" fill="#059669" />
+        <text x="22" y="0">Co-Enzyme & Omega-3 Complexes</text>
+        
+        <circle cx="8" cy="35" r="4" fill="#059669" />
+        <text x="22" y="40">High-Potency Micronutrients</text>
+        
+        <circle cx="8" cy="75" r="4" fill="#059669" />
+        <text x="22" y="80">Bio-Availability</text>
+      </g>
+
+      <!-- Medical Symbol Badge Icon -->
+      <circle cx="480" cy="200" r="60" fill="rgba(255, 255, 255, 0.1)" stroke="#059669" stroke-width="3" filter="url(#shadow_nutraceutical)" />
+      <text x="480" y="215" font-size="50" text-anchor="middle">💊</text>
+    </svg>

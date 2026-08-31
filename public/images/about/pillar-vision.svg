@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+    <circle cx="60" cy="60" r="56" fill="#E6F8F5" stroke="#B2DFDB" stroke-width="2" />
+    <g transform="translate(30, 26)">
+      <!-- Mountain Peak -->
+      <path d="M 30 10 L 55 58 L 5 58 Z" fill="#008B8B" />
+      <path d="M 30 10 L 45 58 L 15 58 Z" fill="#0A2540" opacity="0.3" />
+      <path d="M 42 28 L 58 58 L 26 58 Z" fill="#059669" />
+      <!-- Flag on Top -->
+      <line x1="30" y1="10" x2="30" y2="0" stroke="#0A2540" stroke-width="3" stroke-linecap="round" />
+      <polygon points="30,0 46,6 30,12" fill="#008B8B" />
+    </g>
+  </svg>

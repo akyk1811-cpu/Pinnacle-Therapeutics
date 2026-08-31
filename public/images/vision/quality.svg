@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="qBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2540" />
+      <stop offset="100%" stop-color="#008B8B" />
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#qBg)" />
+  <circle cx="650" cy="100" r="180" fill="#00E5D9" opacity="0.15" />
+  <rect x="50" y="40" width="700" height="420" fill="rgba(255, 255, 255, 0.06)" rx="20" stroke="rgba(255, 255, 255, 0.2)" filter="url(#sh)" />
+  
+  <g transform="translate(400, 210)" filter="url(#sh)">
+    <circle cx="0" cy="0" r="80" fill="#F59E0B" opacity="0.9" />
+    <circle cx="0" cy="0" r="68" fill="#FEF3C7" opacity="0.2" stroke="#FFFFFF" stroke-width="3" />
+    <path d="M-25 -5 L-5 15 L30 -20" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M-25 70 L-40 120 L0 100 L40 120 L25 70" fill="#D97706" />
+  </g>
+
+  <text x="400" y="380" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF" text-anchor="middle">QUALITY EXCELLENCE</text>
+  <text x="400" y="415" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#00E5D9" text-anchor="middle" letter-spacing="1.5">WHO-GMP &amp; ISO 9001 CERTIFIED MANUFACTURING</text>
+</svg>

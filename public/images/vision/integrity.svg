@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="iBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+    <filter id="sh2">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#iBg)" />
+  <circle cx="150" cy="400" r="180" fill="#3B82F6" opacity="0.15" />
+  <rect x="50" y="40" width="700" height="420" fill="rgba(255, 255, 255, 0.06)" rx="20" stroke="rgba(255, 255, 255, 0.2)" filter="url(#sh2)" />
+
+  <g transform="translate(400, 210)" filter="url(#sh2)">
+    <circle cx="0" cy="0" r="80" fill="rgba(255, 255, 255, 0.12)" stroke="#60A5FA" stroke-width="4" />
+    <path d="M0 -55 L45 -25 L45 20 C45 50 0 70 0 70 C0 70 -45 50 -45 20 L-45 -25 Z" fill="#2563EB" stroke="#FFFFFF" stroke-width="3" />
+    <path d="M-15 -5 L-2 8 L20 -15" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <text x="400" y="380" font-family="system-ui, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF" text-anchor="middle">UNCOMPROMISING INTEGRITY</text>
+  <text x="400" y="415" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#93C5FD" text-anchor="middle" letter-spacing="1.5">TRANSPARENT GOVERNANCE &amp; ETHICAL LEADERSHIP</text>
+</svg>

@@ -54,11 +54,11 @@ export default function Home() {
           <div className="metric-label">Quality Assured Formulations</div>
         </div>
         <div className="metric-card">
-          <div className="metric-number">20+</div>
+          <div className="metric-number">70+</div>
           <div className="metric-label">Approved Product Offerings</div>
         </div>
         <div className="metric-card">
-          <div className="metric-number">6+</div>
+          <div className="metric-number">8+</div>
           <div className="metric-label">Therapeutic Care Categories</div>
         </div>
         <div className="metric-card">
@@ -87,7 +87,7 @@ export default function Home() {
             Explore our highlighted formulations engineered for nutraceuticals, women’s health, wellness, and anti-infective care.
           </p>
           <Link href="/products" className="text-link">
-            View full 20+ product catalogue →
+            View full 70+ product catalogue →
           </Link>
         </div>
         <div className="product-grid" style={{ padding: 0 }}>
@@ -123,14 +123,26 @@ export default function Home() {
           <h2>Care that meets real life.</h2>
         </div>
         <div className="focus-grid">
-          {focusAreas.map(([number, title, copy]) => (
-            <article key={number}>
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-              <Link href="/therapeutic-areas" aria-label={`Explore ${title}`}>
-                Explore <b>↗</b>
-              </Link>
+          {focusAreas.map((area) => (
+            <article key={area.id} className="focus-card">
+              <div className="focus-image-wrap">
+                <Image
+                  src={area.image}
+                  alt={area.title}
+                  fill
+                  unoptimized
+                  className="focus-img"
+                  sizes="(max-width: 760px) 100vw, 25vw"
+                />
+              </div>
+              <div className="focus-card-body">
+                <span className="focus-category-tag">{area.categoryTag}</span>
+                <h3>{area.title}</h3>
+                <p>{area.briefing}</p>
+                <Link href="/therapeutic-areas" aria-label={`Explore ${area.title}`}>
+                  Explore <b>↗</b>
+                </Link>
+              </div>
             </article>
           ))}
         </div>

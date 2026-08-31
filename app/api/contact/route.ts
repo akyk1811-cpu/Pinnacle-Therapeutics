@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { hasRecentContact, saveContact } from "@/lib/db";
+import { notifyEnquiry } from "@/lib/notify";
 
 const requestSchema = z.object({ name: z.string().trim().min(2).max(100), email: z.string().trim().email().max(254), message: z.string().trim().min(10).max(2000), companyWebsite: z.string().max(0).optional() });
 const attempts = new Map<string, { count: number; resetAt: number }>();
@@ -32,11 +33,32 @@ export async function POST(request: Request) {
   const parsed = requestSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Invalid form data." }, { status: 400 });
   if (parsed.data.companyWebsite) return NextResponse.json({ ok: true });
+
+  const enquiry = { name: parsed.data.name, email: parsed.data.email.toLowerCase(), message: parsed.data.message };
+  let stored = false;
+
   try {
-    if (await hasRecentContact(parsed.data.email.toLowerCase())) return NextResponse.json({ error: "Please wait before submitting another enquiry." }, { status: 429 });
-    await saveContact({ ...parsed.data, email: parsed.data.email.toLowerCase(), ipHash, userAgent: request.headers.get("user-agent")?.slice(0, 512) ?? null });
-    return NextResponse.json({ ok: true });
+    if (process.env.DATABASE_URL) {
+      if (await hasRecentContact(enquiry.email)) {
+        return NextResponse.json({ error: "Please wait before submitting another enquiry." }, { status: 429 });
+      }
+      await saveContact({ ...enquiry, ipHash, userAgent: request.headers.get("user-agent")?.slice(0, 512) ?? null });
+      stored = true;
+    }
   } catch {
-    return NextResponse.json({ error: "Contact service is temporarily unavailable." }, { status: 503 });
+    stored = false;
   }
+
+  try {
+    const notified = await notifyEnquiry(enquiry);
+    if (!stored && !notified) {
+      return NextResponse.json({ error: "Contact service is temporarily unavailable." }, { status: 503 });
+    }
+  } catch {
+    if (!stored) {
+      return NextResponse.json({ error: "Contact service is temporarily unavailable." }, { status: 503 });
+    }
+  }
+
+  return NextResponse.json({ ok: true });
 }

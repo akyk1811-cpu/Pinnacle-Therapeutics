@@ -25,6 +25,8 @@ The site includes a `robots.txt` route, sitemap, page metadata, and canonical UR
 
 Contact submissions are designed for a hosted Neon Postgres database; the schema is in `database/0000_initial.sql`. Create a Neon project, run that SQL in its SQL editor, and place its connection string in `DATABASE_URL` in your deployment environment. Configure an Upstash Redis database and set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` for durable rate limiting across server instances. Generate a long random `CONTACT_IP_SALT` and keep all of these values in deployment secrets—not Git.
 
+To deliver enquiries to `info@pinnacletherapeutics.in` and `9821607700`, set `RESEND_API_KEY` (email) and Twilio `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_FROM_NUMBER` (SMS) in the host environment. `CONTACT_WEBHOOK_URL` remains an optional extra notifier.
+
 The form validates inputs, uses a bot honeypot, limits IP attempts, hashes rather than stores raw IP addresses, and blocks repeated enquiries from the same email for 24 hours. Add email-verification and Turnstile before public launch if contact abuse is a concern.
 
 ## Security posture

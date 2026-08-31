@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2F1F8" />
+      <stop offset="60%" stop-color="#F4FBFE" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#0284C7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.4" />
+    </linearGradient>
+
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+
+    <linearGradient id="lawnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#166534" />
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#0F172A" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1200" height="800" fill="url(#skyGrad)" />
+
+  <!-- Sun Rays Accent -->
+  <circle cx="200" cy="150" r="300" fill="#008B8B" opacity="0.03" />
+
+  <!-- Main Building Back Wing -->
+  <rect x="150" y="240" width="900" height="360" fill="#CBD5E1" rx="4" />
+  <rect x="160" y="260" width="880" height="320" fill="url(#glassGrad)" />
+
+  <!-- Modern Main Building Facade -->
+  <rect x="250" y="160" width="750" height="460" fill="url(#wallGrad)" rx="8" filter="url(#shadow)" />
+
+  <!-- Glass Curtain Windows Row 1 -->
+  <g fill="url(#glassGrad)" stroke="#CBD5E1" stroke-width="2">
+    <rect x="290" y="260" width="140" height="320" rx="4" />
+    <rect x="450" y="260" width="140" height="320" rx="4" />
+    <rect x="610" y="260" width="140" height="320" rx="4" />
+    <rect x="770" y="260" width="200" height="320" rx="4" />
+  </g>
+
+  <!-- Building Horizontal Steel Accents -->
+  <line x1="250" y1="240" x2="1000" y2="240" stroke="#008B8B" stroke-width="6" />
+  <line x1="250" y1="360" x2="1000" y2="360" stroke="#94A3B8" stroke-width="2" opacity="0.5" />
+  <line x1="250" y1="480" x2="1000" y2="480" stroke="#94A3B8" stroke-width="2" opacity="0.5" />
+
+  <!-- Prominent Facade Brand Signboard: PINNACLE THERAPEUTICS -->
+  <g transform="translate(775, 185)">
+    <!-- Mountain Peak Icon -->
+    <path d="M 0 35 L 22 0 L 44 35 Z" fill="#008B8B" />
+    <path d="M 16 35 L 32 10 L 48 35 Z" fill="#0B2545" />
+
+    <!-- Text Typography -->
+    <text x="58" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#0B2545" letter-spacing="2">PINNACLE</text>
+    <text x="58" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#008B8B" letter-spacing="4">THERAPEUTICS</text>
+  </g>
+
+  <!-- Modern Entrance Canopy -->
+  <rect x="480" y="540" width="240" height="20" fill="#008B8B" rx="4" />
+  <rect x="520" y="560" width="160" height="60" fill="url(#glassGrad)" />
+
+  <!-- Landscaping Greenery Lawn -->
+  <path d="M 0 600 Q 600 570 1200 600 L 1200 800 L 0 800 Z" fill="url(#lawnGrad)" />
+
+  <!-- Hedge & Shrub Details -->
+  <circle cx="200" cy="620" r="35" fill="#15803D" />
+  <circle cx="240" cy="625" r="30" fill="#166534" />
+  <circle cx="280" cy="620" r="40" fill="#22C55E" />
+
+  <circle cx="950" cy="620" r="35" fill="#15803D" />
+  <circle cx="990" cy="625" r="30" fill="#166534" />
+  <circle cx="1030" cy="620" r="40" fill="#22C55E" />
+</svg>
