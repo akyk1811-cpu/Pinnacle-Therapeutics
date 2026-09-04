@@ -7,7 +7,11 @@ import { focusAreas } from "@/lib/site";
 import { products } from "@/lib/products";
 
 export default function Home() {
-  const featuredProducts = products.filter((p) => p.image).slice(0, 4);
+  const row1Brands = ["UBX-GOLD", "UBX-FORTE", "DYDOPURE"];
+  const row2Brands = ["GILDAGEST-200 SR", "GILDAGEST-300 SR"];
+
+  const row1Products = row1Brands.map(b => products.find(p => p.brand === b)).filter(Boolean);
+  const row2Products = row2Brands.map(b => products.find(p => p.brand === b)).filter(Boolean);
 
   return (
     <main>
@@ -47,8 +51,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics & Pillars Strip */}
-      <section className="metrics-strip">
+      {/* Metrics Banner */}
+      <section className="metrics">
         <div className="metric-card">
           <div className="metric-number">100%</div>
           <div className="metric-label">Quality Assured Formulations</div>
@@ -90,29 +94,59 @@ export default function Home() {
             View full 70+ product catalogue →
           </Link>
         </div>
-        <div className="product-grid" style={{ padding: 0 }}>
-          {featuredProducts.map((product) => (
-            <article className="product-tile" key={product.brand}>
-              {product.image ? (
-                <div className="product-image-wrap" style={{ height: "170px" }}>
-                  <Image
-                    src={product.image}
-                    alt={product.brand}
-                    fill
-                    className="product-img"
-                    sizes="240px"
-                  />
-                </div>
-              ) : null}
-              <p className="product-tag">{product.category} · {product.form}</p>
-              <h2 style={{ fontSize: "22px", margin: "10px 0 6px" }}>{product.brand}</h2>
-              {product.composition ? (
-                <p className="composition" style={{ fontSize: "12px", WebkitLineClamp: 2, display: "-webkit-box", WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                  {product.composition}
-                </p>
-              ) : null}
-            </article>
-          ))}
+
+        <div className="featured-showcase-wrap" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          {/* Row 1: UBX GOLD, UBX FORTE, DYDOPURE */}
+          <div className="product-grid" style={{ padding: 0, gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+            {row1Products.map((product) => product && (
+              <article className="product-tile" key={product.brand}>
+                {product.image ? (
+                  <div className="product-image-wrap" style={{ height: "180px" }}>
+                    <Image
+                      src={product.image}
+                      alt={product.brand}
+                      fill
+                      className="product-img"
+                      sizes="320px"
+                    />
+                  </div>
+                ) : null}
+                <p className="product-tag">{product.category} · {product.form}</p>
+                <h2 style={{ fontSize: "22px", margin: "10px 0 6px" }}>{product.brand}</h2>
+                {product.composition ? (
+                  <p className="composition" style={{ fontSize: "12px", WebkitLineClamp: 2, display: "-webkit-box", WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                    {product.composition}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+
+          {/* Row 2: GILDAGEST 200 SR, GILDAGEST 300 SR */}
+          <div className="product-grid" style={{ padding: 0, gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }}>
+            {row2Products.map((product) => product && (
+              <article className="product-tile" key={product.brand}>
+                {product.image ? (
+                  <div className="product-image-wrap" style={{ height: "180px" }}>
+                    <Image
+                      src={product.image}
+                      alt={product.brand}
+                      fill
+                      className="product-img"
+                      sizes="480px"
+                    />
+                  </div>
+                ) : null}
+                <p className="product-tag">{product.category} · {product.form}</p>
+                <h2 style={{ fontSize: "22px", margin: "10px 0 6px" }}>{product.brand}</h2>
+                {product.composition ? (
+                  <p className="composition" style={{ fontSize: "12px", WebkitLineClamp: 2, display: "-webkit-box", WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                    {product.composition}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -125,22 +159,11 @@ export default function Home() {
         <div className="focus-grid">
           {focusAreas.map((area) => (
             <article key={area.id} className="focus-card">
-              <div className="focus-image-wrap">
-                <Image
-                  src={area.image}
-                  alt={area.title}
-                  fill
-                  unoptimized
-                  className="focus-img"
-                  sizes="(max-width: 760px) 100vw, 25vw"
-                />
-              </div>
               <div className="focus-card-body">
                 <span className="focus-category-tag">{area.categoryTag}</span>
                 <h3>{area.title}</h3>
-                <p>{area.briefing}</p>
                 <Link href="/therapeutic-areas" aria-label={`Explore ${area.title}`}>
-                  Explore <b>↗</b>
+                  Explore ↗
                 </Link>
               </div>
             </article>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -32,32 +33,37 @@ export default function ProductsPage() {
         </div>
       </section>
       <section className="product-grid">
-        {products.map((product) => (
-          <article className="product-tile" key={product.brand}>
-            {product.image ? (
-              <div className="product-image-wrap">
-                <Image
-                  src={product.image}
-                  alt={product.brand}
-                  fill
-                  unoptimized
-                  className="product-img"
-                  sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-            ) : null}
-            <p className="product-tag">
-              {product.category} · {product.form}
-            </p>
-            <h2>{product.brand}</h2>
-            {product.composition ? (
-              <p className="composition">{product.composition}</p>
-            ) : (
-              <p className="composition pending">{product.note}</p>
-            )}
-            {product.note && product.composition ? <p className="product-note">{product.note}</p> : null}
-          </article>
-        ))}
+        {products.map((product) => {
+          const slug = product.brand.toLowerCase().replace(/[^a-z0-9-]/g, "-");
+          return (
+            <Link href={`/products/${slug}`} key={product.brand} className="product-tile-link">
+              <article className="product-tile">
+                {product.image ? (
+                  <div className="product-image-wrap">
+                    <Image
+                      src={product.image}
+                      alt={product.brand}
+                      fill
+                      unoptimized
+                      className="product-img"
+                      sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                ) : null}
+                <p className="product-tag">
+                  {product.category} · {product.form}
+                </p>
+                <h2>{product.brand}</h2>
+                {product.composition ? (
+                  <p className="composition">{product.composition}</p>
+                ) : (
+                  <p className="composition pending">{product.note}</p>
+                )}
+                {product.note && product.composition ? <p className="product-note">{product.note}</p> : null}
+              </article>
+            </Link>
+          );
+        })}
       </section>
       <section className="product-disclaimer">
         <p>
